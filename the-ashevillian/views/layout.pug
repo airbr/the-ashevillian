@@ -49,6 +49,10 @@ html
     .content
       block content
 
+    footer
+      block footer
+        p ---
+
     block scripts
       script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/dist/App.bundle.js")

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div
+        h1(style='background-color: gold') 'Hello'
+        span(style='background-color: red !important;') Hello my name is #{name}
+        div
+            - upDog = dog.toUpperCase();
+            h1(style='background-color: gold') 'Hello'
+            span(style='background-color: red !important;') The Dogs name is #{upDog}
+            img(src='dog.jpeg' alt=`Dog ${dog}`)
+
+    div
+        h1(style='background-color: gold') 'Hello'
+        span(style='background-color: red !important;') 'TEST'
+        div
+            h1(style='background-color: gold') 'Hello'
+            span(style='background-color: red !important;') 'TEST'
+            img(src='cat.jpeg' alt='cat')
+
+block footer
+    p One
+        | Two
+        | Three
