@@ -33,6 +33,8 @@ exports.editStore = async (req, res) => {
 };
 
 exports.updateStore = async (req, res) => {
+
+  req.body.location.type = 'Point';
   // Find and update store
  // Redirect to Store and flash
   // Query, Data, Options - three args
