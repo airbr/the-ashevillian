@@ -7,6 +7,9 @@ const multerOptions = {
     //Yes file is fine or No not allowed
     const isPhoto = file.mimetype.startsWith('image/');
     if(isPhoto){
+      // Node classic callbacks
+      // Passed first value = error
+      // Null, second value = what value needs to be passed along
       next(null, true);
     } else {
       next({ message: 'That filetype isn\'t allowed!' }, false);
@@ -22,6 +25,8 @@ exports.homePage = (req, res) => {
 exports.addStore = (req, res) => {
   res.render('editStore', {title: 'Add Store'});
 };
+
+exports.upload = multer(multerOptions).single('photo');
 
 exports.createStore = async(req, res) => {
     const store = await (new Store(req.body)).save();
