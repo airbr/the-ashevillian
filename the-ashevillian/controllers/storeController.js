@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const Store = mongoose.model('Store');
 const multer = require('multer');
+// Allows Resize
+const jimp = require('jimp');
+// Make filenames unique
+const uuid = require('uuid');
+
 const multerOptions = {
   storage: multer.memoryStorage(),
   fileFilter(req, file, next) {
