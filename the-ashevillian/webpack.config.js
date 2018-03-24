@@ -1,6 +1,6 @@
-/*
-  Okay folks, want to learn a little bit about webpack?
-*/
+
+
+/* Annotated/revised March 24 2018 */
 
 const path = require('path');
 const webpack = require('webpack');
@@ -22,7 +22,7 @@ const javascript = {
 };
 
 /*
-  This is our postCSS loader which gets fed into the next loader. I'm setting it up in it's own variable because its a didgeridog
+  This is our postCSS loader which gets fed into the next loader. I'm setting it up in it's own variable
 */
 
 const postcss = {
@@ -76,6 +76,7 @@ const config = {
   ]
 };
 // webpack is cranky about some packages using a soon to be deprecated API. shhhhhhh
+// TODO: Update?/ Investigate this?
 process.noDeprecation = true;
 
 module.exports = config;
