@@ -20,7 +20,7 @@ Environment Variables
 
 A step by step series of examples that tell you have to get a development env running
 
-``npm run start``
+``npm start``
 
 *TODO:*
 
@@ -34,8 +34,6 @@ And repeat
 until finished
 ``` -->
 
-
-
 ## Running the tests TODO: Add Tests...
 
 Explain how to run the automated tests for this system
@@ -47,12 +45,9 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [NodeJS]() 
+* [MongoDB]()
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
+## Versioning/History
 
 ## License
 
