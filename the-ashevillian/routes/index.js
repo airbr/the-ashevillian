@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const storeController = require('../controllers/storeController');
+const statsController = require('../Controllers/statsController');
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
@@ -24,6 +25,8 @@ router.post('/add/:id',
 router.get('/stores/:id/edit', catchErrors(storeController.editStore));
 
 router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
+
+router.get('/stats', catchErrors(statsController.showStats));
 
 
 // router.get('/reverse/:name', (req, res) => {
