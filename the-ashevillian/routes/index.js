@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const storeController = require('../controllers/storeController');
+const userController = require('../controllers/userController');
 const statsController = require('../Controllers/statsController');
 
 const { catchErrors } = require('../handlers/errorHandlers');
@@ -31,7 +32,7 @@ router.get('/stats', catchErrors(statsController.showStats));
 router.get('/tags', catchErrors(storeController.getStoresByTag));
 router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
 
-
+router.get('/login', userController.loginForm);
 
 // router.get('/reverse/:name', (req, res) => {
 //   const reverse = [...req.params.name].reverse().join('');
