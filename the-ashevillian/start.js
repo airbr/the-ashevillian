@@ -18,6 +18,8 @@ mongoose.connection.on('error', (err) => {
 // Import All Models
 // Node Singleton
 require('./models/Store');
+require('./models/User');
+
 
 // Start our app!
 const app = require('./app');

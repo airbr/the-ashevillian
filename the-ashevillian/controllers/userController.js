@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const promisify = require('es6-promisify');
 
 exports.loginForm = (req, res) => {
   res.render('login', { title: 'Login' });
@@ -29,5 +31,18 @@ exports.validateRegister = (req, res, next) => {
     flashes: req.flash() });
     return;
   }
+  next();
+};
+
+
+exports.register = async (req, res, next) => {
+    const user = new User({ email: req.body.email, name: req.body.name });
+    // User.register(user, req.body.password, function(err, user){
+    //
+    // });
+  // Make method that is promisified. If method trying to promisify lives on an object
+  // you need to pass entire object i.e User
+  const register = promisify(User.register, User);
+  await register(user, req.body.password);
   next();
 };

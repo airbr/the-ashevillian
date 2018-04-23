@@ -3,6 +3,7 @@ const router = express.Router();
 const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const statsController = require('../Controllers/statsController');
+const authController = require('../Controllers/authController');
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
@@ -35,7 +36,11 @@ router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
 router.get('/login', userController.loginForm);
 router.get('/register', userController.registerForm);
 
-router.post('/register', userController.validateRegister);
+router.post('/register',
+    userController.validateRegister,
+    userController.register,
+    authController.login
+);
 
 // router.get('/reverse/:name', (req, res) => {
 //   const reverse = [...req.params.name].reverse().join('');
