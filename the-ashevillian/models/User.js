@@ -20,8 +20,13 @@ const userSchema = new Schema({
     required: 'Please Supply A Name',
     trim: true
   }
-
 });
+
+userSchema.virtual('gravatar').get(function() {
+  const hash = md5(this.email);
+  return `https://gravatar/avatar/${hash}?s=200`;
+});
+
 
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email'});
 userSchema.plugin(mongodbErrorHandler);
