@@ -48,9 +48,6 @@ router.post('/register',
 
 router.get('/logout', authController.logout);
 
-// router.get('/reverse/:name', (req, res) => {
-//   const reverse = [...req.params.name].reverse().join('');
-//   res.send(reverse);
-// });
+router.get('/account', userController.account);
 
 module.exports = router;
