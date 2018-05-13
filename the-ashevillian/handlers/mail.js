@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const pug = require('pug');
+// Juice Inlines CSS
 const juice = require('juice');
 const htmlToText = require('html-to-text');
 const promisify = require('es6-promisify');
@@ -13,10 +14,27 @@ const transport = nodemailer.createTransport({
   }
 });
 
-transport.sendMail({
-  from: 'test@test.com',
-  to: 'tester@test.com',
-  subject: 'SHOOT @@@@',
-  html: '<b>WHAT</b> Hello !!!',
-  text:  'eeeeeee TTT'
-});
+const generateHTML = (filename, options = {}) => {
+  const html = pug.renderFile(`${__dirname}/../views/email/${filename}.pug`,
+      options);
+  const inlined = juice(html);
+  //TODO: TEST JUICE INLINING
+  return inlined;
+};
+
+exports.send = async(options) => {
+  const html = generateHTML(options.filename, options);
+  const text = htmlToText.fromString(html);
+
+  const mailOptions = {
+    from: `Support <morganwebdev.test@gmail.com`,
+    to: options.user.email,
+    subject: options.subject,
+    html,
+    text
+  };
+
+  const sendMail = promisify(transport.sendMail, transport);
+
+  return sendMail(mailOptions);
+};
