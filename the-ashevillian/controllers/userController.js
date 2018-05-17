@@ -36,14 +36,23 @@ exports.validateRegister = (req, res, next) => {
 
 
 exports.register = async (req, res, next) => {
-    const user = new User({ email: req.body.email, name: req.body.name });
-    // User.register(user, req.body.password, function(err, user){
+
+  const existinguser = await User.findOne({email: req.body.email});
+  if(existinguser)
+  {
+    req.flash('error', 'An account is already registered to that email.');
+    res.redirect('/register');
+  }
+
+  const user = new User({ email: req.body.email, name: req.body.name });
+  // User.register(user, req.body.password, function(err, user){
     //
     // });
   // Make method that is promisified. If method trying to promisify lives on an object
   // you need to pass entire object i.e User
   const register = promisify(User.register, User);
   await register(user, req.body.password);
+
   next();
 };
 
