@@ -7,9 +7,9 @@ function ajaxHeart(e) {
      .post(this.action)
      .then(res => {
         console.log(res.data);
-        //This is form tag
+        //'this' is form tag
        // sub elements with name, access as property
-       // i.e this is a button
+       // i.e this.heart is a button
         const isHearted = this.heart.classList.toggle('heart__button--hearted');
       $('.heart-count').textContent = res.data.hearts.length;
       if (isHearted){
