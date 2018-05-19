@@ -12,10 +12,22 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+const fs = require('fs');
 require('./handlers/passport');
 
 // create our Express app
 const app = express();
+
+fs.stat('variables.env', function(err, stat) {
+  if(err == null) {
+    console.log('Variables ENV exists');
+  } else if(err.code == 'ENOENT') {
+    console.log('!!! NO Variables ENV !!!');
+    process.exit();
+  } else {
+    console.log('Some other error: ', err.code);
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
