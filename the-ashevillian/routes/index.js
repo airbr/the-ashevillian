@@ -4,6 +4,7 @@ const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const statsController = require('../Controllers/statsController');
 const authController = require('../Controllers/authController');
+const reviewController = require('../Controllers/reviewController');
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
@@ -62,7 +63,7 @@ router.get('/map', storeController.mapPage);
 
 router.get('/hearts', authController.isLoggedIn, catchErrors(storeController.getHearts));
 
-
+router.post('/reviews/:id', authController.isLoggedIn, catchErrors(reviewController.addReview));
 
 /* API */
 
