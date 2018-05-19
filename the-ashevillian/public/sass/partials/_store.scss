@@ -5,6 +5,7 @@
 }
 
 .store {
+  border-radius: 22px;
   background:white;
   margin: 1.25em 0 0 1.25em;
   width: calc(33.3333% - 1.25em);
@@ -77,6 +78,8 @@
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
   img {
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
     height: 100%;
     width: 100%;
     top: 0;
