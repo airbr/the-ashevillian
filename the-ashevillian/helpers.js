@@ -21,7 +21,7 @@ exports.icon = (name) => fs.readFileSync(`./public/images/icons/${name}.svg`);
 exports.siteName = `The Good Eats`;
 
 exports.menu = [
-  { slug: '/stores', title: 'Stores', icon: 'store', },
+  { slug: '/stores', title: 'Places', icon: 'store', },
   { slug: '/tags', title: 'Tags', icon: 'tag', },
   { slug: '/top', title: 'Top', icon: 'top', },
   { slug: '/add', title: 'Add', icon: 'add', },

@@ -81,7 +81,7 @@ exports.getStores = async (req, res) => {
     return;
   }
 
-  res.render('stores', {title: 'Stores', stores, page, pages, count });
+  res.render('stores', {title: 'Places', stores, page, pages, count });
 };
 
 const confirmOwner = (store, user) => {

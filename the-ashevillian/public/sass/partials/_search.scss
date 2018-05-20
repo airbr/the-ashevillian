@@ -18,6 +18,10 @@
     outline: 0;
     border: 0;
   }
+  &__input:focus {
+    background: lightgrey;
+    color: black;
+  }
   &__result {
     padding: 10px;
     display: block;

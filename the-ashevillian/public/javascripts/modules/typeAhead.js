@@ -41,7 +41,7 @@ function typeAhead(search) {
             );
             return;
           }
-        searchResults.innerHTML = dompurify.sanitize(`<div class="search__result">No results for ${this.value} found!</div>`);
+        searchResults.innerHTML = dompurify.sanitize(`<div class="search__result">No results for " ${this.value} " found!</div>`);
         })
         .catch(err => {
           console.error(err);
