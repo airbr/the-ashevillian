@@ -2,12 +2,12 @@ import axios from 'axios';
 import {$} from './bling';
 
 
-const mapOptions = {
-  center: {lat: 43.2, lng: -79.8},
-  zoom: 8
-};
+// const mapOptions = {
+//   center: {lat: 40.758896, lng: -73.985130},
+//   zoom: 8
+// };
 
-function loadPlaces(map, lat = 43.2, lng = -79.8) {
+function loadPlaces(map, lat = 40.758896, lng = -73.985130) {
   axios.get(`/api/stores/near?lat=${lat}&lng=${lng}`)
       .then(res => {
         const places = res.data;
@@ -52,12 +52,14 @@ function loadPlaces(map, lat = 43.2, lng = -79.8) {
       }).catch(console.error);
 }
 
-function makeMap(mapDiv) {
+function finishMap(mapDiv, lat, lng) {
   if (!mapDiv) return;
-  // Make Map
-  const map = new google.maps.Map(mapDiv, mapOptions);
-  loadPlaces(map);
+  var mapOptions = {};
+  mapOptions.center = {lat, lng};
+  mapOptions.zoom = 8;
 
+  const map = new google.maps.Map(mapDiv, mapOptions);
+  loadPlaces(map, lat, lng);
 
   const input = $('[name="geolocate"]');
   const autocomplete = new google.maps.places.Autocomplete(input);
@@ -66,7 +68,20 @@ function makeMap(mapDiv) {
     const place = autocomplete.getPlace();
     loadPlaces(map, place.geometry.location.lat(), place.geometry.location.lng() )
   })
+}
 
+function makeMap(mapDiv) {
+  if ("geolocation" in navigator) {
+    /* geolocation is available */
+    navigator.geolocation.getCurrentPosition(function(position) {
+      finishMap(mapDiv, position.coords.latitude, position.coords.longitude);
+    });
+    return;
+  } else {
+    /* geolocation IS NOT available default to Times Square */
+    finishMap(mapDiv, 40.758896, -73.985130);
+    return;
+  }
 }
 
 export default makeMap;
