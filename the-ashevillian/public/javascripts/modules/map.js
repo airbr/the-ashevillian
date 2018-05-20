@@ -71,6 +71,7 @@ function finishMap(mapDiv, lat, lng) {
 }
 
 function makeMap(mapDiv) {
+  // TODO: Use Promises or a clean callback? Waiting for response from geolocation
   if ("geolocation" in navigator) {
     /* geolocation is available */
     navigator.geolocation.getCurrentPosition(function(position) {
