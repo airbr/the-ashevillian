@@ -2,11 +2,6 @@ import axios from 'axios';
 import {$} from './bling';
 
 
-// const mapOptions = {
-//   center: {lat: 40.758896, lng: -73.985130},
-//   zoom: 8
-// };
-
 function loadPlaces(map, lat = 40.758896, lng = -73.985130) {
   axios.get(`/api/stores/near?lat=${lat}&lng=${lng}`)
       .then(res => {
@@ -53,10 +48,9 @@ function loadPlaces(map, lat = 40.758896, lng = -73.985130) {
 }
 
 function finishMap(mapDiv, lat, lng) {
-  if (!mapDiv) return;
   var mapOptions = {};
   mapOptions.center = {lat, lng};
-  mapOptions.zoom = 8;
+  mapOptions.zoom = 12;
 
   const map = new google.maps.Map(mapDiv, mapOptions);
   loadPlaces(map, lat, lng);
@@ -71,6 +65,7 @@ function finishMap(mapDiv, lat, lng) {
 }
 
 function makeMap(mapDiv) {
+  if (!mapDiv) return;
   // TODO: Use Promises or a clean callback? Waiting for response from geolocation
   if ("geolocation" in navigator) {
     /* geolocation is available */
