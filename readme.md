@@ -1,6 +1,9 @@
-# The Ashevillian
+# What's Good
 
-A project to learn and demonstrate NodeJS skill and have a little fun. 
+![Screenshot](readme-assets/screenshot1.png)
+
+
+A project to learn NodeJS and have a little fun. 
 
 ## Getting Started
 
