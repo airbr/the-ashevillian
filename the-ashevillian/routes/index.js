@@ -31,8 +31,6 @@ router.get('/stores/:id/edit', catchErrors(storeController.editStore));
 
 router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
 
-router.get('/stats', catchErrors(statsController.showStats));
-
 router.get('/tags', catchErrors(storeController.getStoresByTag));
 router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
 
