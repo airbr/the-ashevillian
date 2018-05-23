@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
-// const statsController = require('../Controllers/statsController');
-const authController = require('../Controllers/authController');
-const reviewController = require('../Controllers/reviewController');
+const authController = require('../controllers/authController');
+const reviewController = require('../controllers/reviewController');
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
