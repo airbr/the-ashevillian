@@ -1,6 +1,8 @@
 # What's Good
 A project to learn NodeJS and have a little fun. 
 
+###[Live Deployment of App: https://whatsgood.site](https://whatsgood.site/)
+
 
 ## Getting Started
 
@@ -15,7 +17,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+1. Node 7.6+
+2. npm
+3. Jade/Pug text-editor language support 
 
 ```
 Node
@@ -25,9 +29,17 @@ Environment Variables
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+1. Clone this repository
 
-``npm start``
+`git clone https://github.com/airbr/whatsgood.git`
+
+2. cd && npm install
+
+`npm install`
+
+3. Link up MongoDB Database to Application.
+
+Suggested: Mlab 
 
 *TODO:*
 
