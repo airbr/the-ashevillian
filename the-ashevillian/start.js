@@ -23,7 +23,6 @@ require('./models/Store');
 require('./models/User');
 require('./models/Review');
 
-
 // Start our app!
 const app = require('./app');
 app.set('port', process.env.PORT || 7777);

@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
+const navigator = require('navigator');
 const errorHandlers = require('./handlers/errorHandlers');
 const fs = require('fs');
 require('./handlers/passport');
@@ -98,3 +99,4 @@ app.use(errorHandlers.productionErrors);
 
 // done! we export it so we can start the site in start.js
 module.exports = app;
+

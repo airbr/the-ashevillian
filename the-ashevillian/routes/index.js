@@ -4,6 +4,8 @@ const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
 const reviewController = require('../controllers/reviewController');
+const navigator = require('navigator');
+
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
@@ -63,12 +65,35 @@ router.get('/hearts', authController.isLoggedIn, catchErrors(storeController.get
 router.post('/reviews/:id', authController.isLoggedIn, catchErrors(reviewController.addReview));
 
 router.get('/top', catchErrors(storeController.getTopStores));
+router.get('/about', catchErrors());
+
 
 /* API */
 
 router.get('/api/search', catchErrors(storeController.searchStores));
 router.get('/api/stores/near', catchErrors(storeController.mapStores));
 router.post('/api/stores/:id/heart', catchErrors(storeController.heartStore));
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '.' })
+      .then(function(reg) {
+        console.log('Registered service worker ', reg);
+      });
+  
+    navigator.serviceWorker.addEventListener('controllerchange', function(event) {
+      console.log('[controllerchange] A "controllerchange" event has happened ' +
+                  'within navigator.serviceWorker: ', event
+                 );
+  
+      navigator.serviceWorker.controller.addEventListener('statechange', function() {
+        console.log('[controllerchange][statechange] ' , this.state);
+  
+        if (this.state === 'activated') {
+          console.log('ready to go offline!');
+        }
+      });
+    });
+  }
 
 
 module.exports = router;

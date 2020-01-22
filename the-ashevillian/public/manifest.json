@@ -4,7 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A curation of food and drink",
+  "description": "A curation of food and drink"
   "icons": [{
     "src": "images/touch/homescreen48.png",
     "sizes": "48x48",
