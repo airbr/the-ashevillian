@@ -3,6 +3,7 @@ const router = express.Router();
 const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const statsController = require('../controllers/statsController');
 const reviewController = require('../controllers/reviewController');
 const navigator = require('navigator');
 
