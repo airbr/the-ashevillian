@@ -33,7 +33,7 @@ exports.send = async(options) => {
   const text = htmlToText.fromString(html);
 
   const mailOptions = {
-    from: `Whats good <morgan+whatsgoodadmin@morganwebdev.com>`,
+    from: `Alpha App <morgan@morganwebdev.com>`,
     to: options.user.email,
     subject: options.subject,
     HtmlBody: html,
