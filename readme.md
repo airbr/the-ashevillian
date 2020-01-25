@@ -1,5 +1,14 @@
-# What's Good
+# Another Review App
+
 A project to learn NodeJS and have a little fun. Currently no live deployment
+
+
+
+When run users can create stores, make comments and ratings among other features such as "hearting" a store.
+
+I created this with significant input from Wes Bos's Learn Node course.
+
+
 
 ![Website https://whatsgood.site/](https://img.shields.io/website-up-down-green-red/http/myfakewebsitethatshouldnotexist.at.least.i.hope.svg)
 
@@ -11,13 +20,13 @@ I worked through this project over a significant period of time, I have revisite
 
 
 
-This ReadMe needs:
+##### This ReadMe needs:
 
 * Instructions for setting up environment variables and Mongodb database
 
 
 
-Things I learned from this project include about:
+##### Things I learned from this project include about:
 
 * Async Await
 
