@@ -23,7 +23,7 @@ exports.siteName = `What's Good`;
 exports.menu = [
   { slug: '/stores', title: 'Places', icon: 'store', },
   { slug: '/tags', title: 'Tags', icon: 'tag', },
-  { slug: '/top', title: 'Top', icon: 'top', },
+  // { slug: '/top', title: 'Top', icon: 'top', },
   { slug: '/add', title: 'Add', icon: 'add', },
   { slug: '/map', title: 'Map', icon: 'map', },
   { slug: '/about', title: 'About', icon: 'cog', },
