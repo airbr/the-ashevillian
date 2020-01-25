@@ -12,15 +12,16 @@
     left: 0;
   }
   &__input {
+    border-radius: 20px;
     font-size: 30px;
-    background: none;
+    background: white;
     color: white;
     outline: 0;
     border: 0;
   }
   &__input:focus {
     background: lightgrey;
-    color: black;
+    color: white;
   }
   &__result {
     padding: 10px;

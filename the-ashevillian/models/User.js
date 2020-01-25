@@ -32,6 +32,14 @@ userSchema.virtual('gravatar').get(function() {
   return `https://gravatar.com/avatar/${hash}?s=200`;
 });
 
+userSchema.statics.getReviewList = function() {
+  return this.aggregate([
+    { $unwind: '$author' },
+    { $group: { _id: '$author._id', count : { $sum: 1 } }},
+    { $sort: { count: -1} }
+  ]);
+};
+
 
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email'});
 userSchema.plugin(mongodbErrorHandler);

@@ -1,16 +1,13 @@
 extends layout
 
+include mixins/_userReviewForm
+
+
 block content
     div
-        h1(style='background-color: gold') #{h.moment().endOf('day').fromNow()}
-        span(style='background-color: red !important;') Hello my name is #{name}
-        div
-            - upDog = dog.toUpperCase();
-            h1(style='background-color: gold') 'Hello'
-            span(style='background-color: red !important;') The Dogs name is #{upDog}
-            img(src='dog.jpeg' alt=`Dog ${dog}`)
+        pre= h.dump(reviewer)
+      
 
 block footer
-    p One
-        | Two
-        | Three
+    div
+        Morgan Murrah 2020 (Credit to Wes Bos)

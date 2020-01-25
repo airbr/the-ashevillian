@@ -4,6 +4,7 @@ const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
 const statsController = require('../controllers/statsController');
+const aboutController = require('../controllers/aboutController');
 const reviewController = require('../controllers/reviewController');
 const navigator = require('navigator');
 
@@ -62,13 +63,13 @@ router.post('/account/reset/:token',
     authController.confirmedPasswords,
     catchErrors(authController.update)
 );
+router.post('/deletereviews/:id', authController.isLoggedIn, catchErrors(reviewController.deleteReview));
 
 router.get('/map', storeController.mapPage);
 router.get('/hearts', authController.isLoggedIn, catchErrors(storeController.getHearts));
 router.post('/reviews/:id', authController.isLoggedIn, catchErrors(reviewController.addReview));
-
 router.get('/top', catchErrors(storeController.getTopStores));
-router.get('/about', catchErrors());
+router.get('/about', catchErrors(aboutController.showAbout));
 
 
 /* API */

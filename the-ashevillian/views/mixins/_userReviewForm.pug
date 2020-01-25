@@ -1,4 +1,7 @@
-mixin review(review)
+mixin review(review, store)
+    .inner
+        p= review.store
+        //- p= store.name
     .review__header
         .review__author
             img.avatar(src=review.author.gravatar)
@@ -9,3 +12,7 @@ mixin review(review)
         time.review__time(datetime=review.created)= h.moment(review.created).fromNow()
     .review__body
         p(contenteditable)= review.text
+            form.reviewer(action=`/deletereviews/${review._id}` method="POST")
+                input.button(type="submit" value="Delete Review")
+                pre=h.dump(review)
+                

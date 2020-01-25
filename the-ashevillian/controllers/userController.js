@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const promisify = require('es6-promisify');
+const Review = mongoose.model('Review');
+
 
 exports.loginForm = (req, res) => {
   res.render('login', { title: 'Login' });
@@ -56,8 +58,21 @@ exports.register = async (req, res, next) => {
   next();
 };
 
-exports.account = (req, res) => {
-  res.render('account', { title: 'Edit Your Account'});
+
+
+// exports.showReviews = async (req, res, next) => {
+
+//     const reviews = await Review.find({ author: { _id: req.user._id } });
+//     next();
+// };
+
+exports.account = async (req, res) => {
+
+  const reviews = await Review.find({ author: { _id: req.user._id } });
+
+
+  res.render('account', { title: 'Edit Your Account', reviews: reviews});
+
 };
 
 exports.updateAccount = async (req, res) => {

@@ -1,5 +1,8 @@
 extends layout
 
+include mixins/_userReviewForm
+include mixins/_storeCard
+
 block content
     .inner
         form(action="/account" method="POST")
@@ -8,3 +11,20 @@ block content
             label(for="email") Email Address
             input(type="email" name="email" value=user.email)
             input.button(type="submit" value="Update My Account")
+
+    br 
+    br
+    br
+  
+    H3(style="text-align: center;") Your reviews
+
+    if reviews.length == 0
+        p You have no reviews
+    br 
+    br
+    br
+
+    .inner
+         if user
+            each review in reviews
+                    +review(review) 
