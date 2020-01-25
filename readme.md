@@ -3,7 +3,7 @@ A project to learn NodeJS and have a little fun. Currently no live deployment
 
 ![Website https://whatsgood.site/](https://img.shields.io/website-up-down-green-red/http/myfakewebsitethatshouldnotexist.at.least.i.hope.svg)
 
-![Screenshot of main dashboard](/Users/flywheel/Desktop/Screen Shot 2020-01-25 at 10.58.22 AM.png)
+![Screenshot of main dashboard](readme-assets/screenshot.png)
 
 
 
