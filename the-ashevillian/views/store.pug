@@ -13,7 +13,13 @@ block content
     .single__details.inner
         img.single__map(src=h.staticMap(store.location.coordinates)
         )
-        p.single__location= store.location.address
+        div
+           p.single__location= store.location.address
+           <br/>
+           <br/>
+           <br/>
+        //-    p.single__location= store.websiteurl
+
         p= store.description
 
         if store.tags
